@@ -23,5 +23,6 @@
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) 
 
 # 📊Github Stats
+![](https://github-readme-stats.vercel.app/api?username=YapWH1208&show_icons=true&theme=radical)
 ![](https://github-readme-streak-stats.herokuapp.com/?user=YapWH1208&theme=radical&hide_border=true)<br/>
 ![](https://github-readme-stats.vercel.app/api/top-langs/?username=YapWH1208&theme=radical&hide_border=true&include_all_commits=true&count_private=false&layout=compact)
