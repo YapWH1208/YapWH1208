@@ -23,6 +23,9 @@
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) 
 
 # 📊Github Stats
-![](https://github-readme-stats.vercel.app/api?username=YapWH1208&show_icons=true&theme=radical)
-![](https://github-readme-streak-stats.herokuapp.com/?user=YapWH1208&theme=radical&hide_border=true)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=YapWH1208&theme=radical&hide_border=true&include_all_commits=true&count_private=false&layout=compact)
+<div>
+  <img height="170" align="center" src="https://github-readme-stats.vercel.app/api?username=YapWH1208&show_icons=true&theme=light" />
+  <img height="170" align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=YapWH1208&hide_langs_below=1&theme=default&line_height=27&layout=compact" />
+  
+  <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=YapWH1208&theme=light&hide_border=true" />
+</div>
