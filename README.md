@@ -7,6 +7,7 @@
 
 # 🌐 Socials:
 <a href="https://www.kaggle.com/yapwh1208"><img src="https://www.kaggle.com/static/images/logos/kaggle-logo-transparent-300.png" width="100" /></a>
+<a href="[https://www.kaggle.com/yapwh1208](https://scholar.google.com/citations?user=8R8pJXwAAAAJ&hl=en)"><img src="https://github.com/YapWH1208/YapWH1208/blob/main/Google%20Scholar.png" width="100" /></a>
 
 # 💻 Tech Stack:
 ![Keras](https://img.shields.io/badge/Keras-%23D00000.svg?style=for-the-badge&logo=Keras&logoColor=white) 
