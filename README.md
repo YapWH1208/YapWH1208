@@ -33,13 +33,13 @@
     height="170"
     align="center"
     alt="YapWH1208 GitHub statistics"
-    src="https://github-readme-stats.vercel.app/api?username=YapWH1208&show_icons=true&theme=light&cache_seconds=86400&v=2"
+    src="./profile/stats.svg"
   />
   <img
     height="170"
     align="center"
     alt="YapWH1208 most-used languages"
-    src="https://github-readme-stats.vercel.app/api/top-langs?username=YapWH1208&theme=default&layout=compact&langs_count=8&cache_seconds=86400&v=2"
+    src="./profile/top-langs.svg"
   />
 
   <br><br>
