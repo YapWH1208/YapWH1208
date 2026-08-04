@@ -6,8 +6,12 @@
 </picture>
 
 # 🌐 Socials:
-<a href="https://www.kaggle.com/yapwh1208"><img src="https://www.kaggle.com/static/images/logos/kaggle-logo-transparent-300.png" width="100" /></a>
-<a href="[https://www.kaggle.com/yapwh1208](https://scholar.google.com/citations?user=8R8pJXwAAAAJ&hl=en)"><img src="https://github.com/YapWH1208/YapWH1208/blob/main/Google%20Scholar.png" width="100" /></a>
+<a href="https://www.kaggle.com/yapwh1208">
+  <img src="https://www.kaggle.com/static/images/logos/kaggle-logo-transparent-300.png" alt="Kaggle" width="100" />
+</a>
+<a href="https://scholar.google.com/citations?user=8R8pJXwAAAAJ&hl=en">
+  <img src="./Google%20Scholar.png" alt="Google Scholar" width="100" />
+</a>
 
 # 💻 Tech Stack:
 ![Keras](https://img.shields.io/badge/Keras-%23D00000.svg?style=for-the-badge&logo=Keras&logoColor=white) 
@@ -23,10 +27,26 @@
 ![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white) 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) 
 
-# 📊Github Stats
+# 📊 GitHub Stats
 <div>
-  <img height="170" align="center" src="https://github-readme-stats.vercel.app/api?username=YapWH1208&show_icons=true&theme=light" />
-  <img height="170" align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=YapWH1208&hide_langs_below=1&theme=default&line_height=27&layout=compact" />
-  
-  <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=YapWH1208&theme=light&hide_border=true" />
+  <img
+    height="170"
+    align="center"
+    alt="YapWH1208 GitHub statistics"
+    src="./profile/stats.svg"
+  />
+  <img
+    height="170"
+    align="center"
+    alt="YapWH1208 most-used languages"
+    src="./profile/top-langs.svg"
+  />
+
+  <br><br>
+
+  <img
+    align="center"
+    alt="YapWH1208 GitHub contribution streak"
+    src="https://github-readme-streak-stats.herokuapp.com/?user=YapWH1208&theme=light&hide_border=true"
+  />
 </div>
