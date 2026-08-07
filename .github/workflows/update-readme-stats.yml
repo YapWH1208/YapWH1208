@@ -7,44 +7,97 @@ on:
   push:
     branches:
       - main
-      - fix/profile-readme-loading
     paths:
       - ".github/workflows/update-readme-stats.yml"
 
 permissions:
   contents: write
 
+concurrency:
+  group: update-readme-stats
+  cancel-in-progress: false
+
 jobs:
   generate:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v6
 
+      - name: Prepare temporary output directory
+        run: mkdir -p profile/.generated
+
       - name: Generate GitHub stats card
+        continue-on-error: true
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: stats
           options: username=${{ github.repository_owner }}&show_icons=true&include_all_commits=true&theme=transparent
-          path: profile/stats.svg
+          path: profile/.generated/stats.svg
           token: ${{ secrets.GITHUB_TOKEN }}
           fail_on_error: true
 
       - name: Generate top languages card
+        continue-on-error: true
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: top-langs
           options: username=${{ github.repository_owner }}&layout=compact&langs_count=8&theme=transparent
-          path: profile/top-langs.svg
+          path: profile/.generated/top-langs.svg
           token: ${{ secrets.GITHUB_TOKEN }}
           fail_on_error: true
 
-      - name: Commit generated cards
+      - name: Generate contribution streak card
+        continue-on-error: true
+        uses: DenverCoder1/github-readme-streak-stats@v1.7.0
+        with:
+          options: user=${{ github.repository_owner }}&theme=default&hide_border=true&disable_animations=true
+          path: profile/.generated/streak.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Promote only valid generated SVGs
+        shell: bash
         run: |
+          set -euo pipefail
+
+          promote_svg() {
+            src="$1"
+            dst="$2"
+
+            if [ -s "$src" ] && grep -q '<svg' "$src" && grep -q '</svg>' "$src"; then
+              mv "$src" "$dst"
+              echo "Updated $dst"
+            else
+              rm -f "$src"
+              if [ -s "$dst" ]; then
+                echo "Generation failed for $dst; keeping the last known good file."
+              else
+                echo "No valid generated file and no existing fallback for $dst." >&2
+                return 1
+              fi
+            fi
+          }
+
+          promote_svg profile/.generated/stats.svg profile/stats.svg
+          promote_svg profile/.generated/top-langs.svg profile/top-langs.svg
+          promote_svg profile/.generated/streak.svg profile/streak.svg
+          rm -rf profile/.generated
+
+      - name: Commit generated cards
+        shell: bash
+        run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add profile/stats.svg profile/top-langs.svg
-          git diff --cached --quiet && exit 0
+          git add profile/stats.svg profile/top-langs.svg profile/streak.svg
+
+          if git diff --cached --quiet; then
+            echo "Stats cards are already up to date."
+            exit 0
+          fi
+
           git commit -m "Update README stats cards"
-          git push
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
