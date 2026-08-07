@@ -85,13 +85,31 @@ jobs:
           promote_svg profile/.generated/streak.svg profile/streak.svg
           rm -rf profile/.generated
 
+      - name: Switch README to repository-hosted streak card
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("README.md")
+          text = path.read_text()
+          replacements = (
+              'src="https://github-readme-streak-stats.herokuapp.com/?user=YapWH1208&theme=light&hide_border=true"',
+              'src="https://streak-stats.demolab.com/?user=YapWH1208&theme=default&hide_border=true&disable_animations=true"',
+          )
+          for old in replacements:
+              text = text.replace(old, 'src="./profile/streak.svg"')
+          path.write_text(text)
+          PY
+
       - name: Commit generated cards
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add profile/stats.svg profile/top-langs.svg profile/streak.svg
+          git add README.md profile/stats.svg profile/top-langs.svg profile/streak.svg
 
           if git diff --cached --quiet; then
             echo "Stats cards are already up to date."
