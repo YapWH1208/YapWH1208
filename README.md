@@ -47,6 +47,6 @@
   <img
     align="center"
     alt="YapWH1208 GitHub contribution streak"
-    src="https://streak-stats.demolab.com/?user=YapWH1208&theme=default&hide_border=true&disable_animations=true"
+    src="./profile/streak.svg"
   />
 </div>
